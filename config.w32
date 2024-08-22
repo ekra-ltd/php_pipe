@@ -1,0 +1,12 @@
+ARG_ENABLE('pipe', 'Whether to enable pipe support', 'no');
+
+if(PHP_PIPE != 'no')
+{
+	var pipe_sources = 	'pipe.c'; 
+
+	AC_DEFINE('HAVE_PIPE', 1, 'Have pipe');
+	ADD_FLAG('CFLAGS_APCU', '/D WIN32_ONLY_COMPILER=1');
+	PHP_INSTALL_HEADERS("ext/php_pipe", "pipe.h");
+
+	EXTENSION("pipe", pipe_sources, PHP_PIPE_SHARED, "");
+}
