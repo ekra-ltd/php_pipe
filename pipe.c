@@ -8,8 +8,11 @@ ZEND_GET_MODULE(pipe)
 #define TSRMLS_CC
 #endif
 
+ZEND_BEGIN_ARG_INFO_EX(arginfo_void, 0, 0, 0)
+ZEND_END_ARG_INFO()
+
 static zend_function_entry pipe_functions[] = {
-    PHP_FE(pipe_readwrite, NULL)
+    PHP_FE(pipe_readwrite, arginfo_void)
     {NULL, NULL, NULL}
 };
 
